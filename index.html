@@ -1,1 +1,47 @@
-1
+<style>
+    #a1 {
+        height: 75%;
+        width: 78%;
+    }
+</style>
+
+<center>
+    <p id="a">0</p>
+    <button onclick="start()"><img id="a1" src="bit.png"></button>
+    <p id="a2">70</p>
+    <p>/</p>
+    <p id="a3">80</p>
+    <!-- <progress value="70" max="100" id="a3">70 %</progress> !-->
+</center>
+<script>
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    max = 100
+    now = 100
+    sumer = 0
+    plus = 0.5
+    document.getElementById("a").innerText = sumer
+    document.getElementById("a2").innerText = now
+    document.getElementById("a3").innerText = max
+
+    function sum2() {
+        if (now < max) {
+            now += plus
+            document.getElementById("a").innerText = sumer
+            document.getElementById("a2").innerText = now
+            document.getElementById("a3").innerText = max
+        }
+        setTimeout(sum2, 1000);
+    }
+
+    function start() {
+
+        sumer++
+        now--
+        document.getElementById("a").innerText = sumer
+        document.getElementById("a2").innerText = now
+    }
+    setTimeout(sum2, 1000);
+    //document.getElementById("a3").innerHTML = '<progress value="99" max="100" id="a3">10 %</progress>'
+</script>
